@@ -1,25 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import React from "react";
+import { Route, Routes,  } from "react-router-dom";
+import Layout from './Layout';
+import IndexPage from './pages/indexpage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/Register';
+import ContactPage from './pages/Contact us';
+import AboutPage from './pages/Aboutpage';
+import PrivacyPolicyPage from './pages/Privacy Policy';
+import TermsAndConditionPage from './pages/Terms and Condition';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+
+    <Routes>
+      <Route path='/' element={<Layout />} >
+        <Route index element={<IndexPage/>} />
+        <Route path={'/login'} element={ <LoginPage/>} />
+        <Route path={'/Register'} element={ <RegisterPage/>} />
+        <Route path={'/contact'} element={ <ContactPage/>} />
+        <Route path={'/about'} element={<AboutPage/> } />
+        <Route path={'/privacy'} element={<PrivacyPolicyPage/> } />
+        <Route path={'/terms'} element={ <TermsAndConditionPage/>} />
+        
+      </Route>
+    </Routes>
+
+
+
+
   );
-}
+};
 
 export default App;
